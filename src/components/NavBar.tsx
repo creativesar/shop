@@ -1,79 +1,124 @@
-import React from "react";
+'use client'
+
+import React, { useState } from "react";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { BiCart } from "react-icons/bi";
 import { TbUserCircle } from "react-icons/tb";
 import { CiSearch } from "react-icons/ci";
 
 const NavBar = () => {
+  const [isShopDropdownOpen, setIsShopDropdownOpen] = useState(false);
+
   return (
-    <header className="bg-white shadow-sm border-b mx-auto flex flex-col w-full">
+    <header className="bg-white shadow-sm border-b w-full">
       {/* Announcement Bar */}
-      <div className="bg-black text-white py-2 text-xs sm:text-sm flex justify-center items-center px-4 sm:px-8 w-full">
-        <div className="text-center text-[12px] lg:text-[14px] font-normal font-satoshi">
+      <div className="bg-black text-white py-2 text-xs sm:text-sm flex justify-center items-center">
+        <p className="text-center text-[12px] lg:text-[14px]">
           Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!{" "}
           <a
             href="#"
-            className="underline hover:text-slate-300 font-bold transition-colors"
+            className="underline hover:text-gray-400 font-bold transition-colors"
           >
             Shop Now
           </a>
-        </div>
+        </p>
       </div>
 
       {/* Main Navigation */}
-      <div className="flex justify-around items-center px-8 py-4">
+      <div className="flex justify-between items-center px-8 py-4">
         {/* Logo */}
-        <h1 className="text-2xl text-black font-bold font-['integralcf']">SHOP.CO</h1>
+        <h1 className="text-2xl font-bold text-gray-900">SHOP.CO</h1>
 
         {/* Navigation Links */}
-        <nav className="hidden md:flex space-x-6 items-center">
-          {/* Shop link with dropdown icon */}
-          <a
-            href="#"
-            className="relative flex items-center text-slate-600 font-normal hover:text-black group transition-colors"
+        <nav className="hidden md:flex items-center space-x-8 relative">
+          {/* Shop Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setIsShopDropdownOpen(true)}
+            onMouseLeave={() => setIsShopDropdownOpen(false)}
           >
-            Shop
-            <RiArrowDropDownLine className="ml-1 text-black text-xl sm:text-2xl" />
-          </a>
+            <button
+              className="flex items-center text-gray-600 hover:text-black transition-colors"
+              aria-haspopup="true"
+              aria-expanded={isShopDropdownOpen}
+            >
+              Shop
+              <RiArrowDropDownLine className="ml-1 text-xl" />
+            </button>
+            {/* Dropdown Menu */}
+            {isShopDropdownOpen && (
+              <div className="absolute left-0 top-10 w-64 bg-white shadow-lg rounded-lg z-20">
+                <ul className="py-2">
+                  <li>
+                    <a
+                      href="#"
+                      className="block px-6 py-3 text-gray-700 hover:text-white hover:bg-gray-900 rounded-md"
+                    >
+                      Men’s Clothes
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="block px-6 py-3 text-gray-700 hover:text-white hover:bg-gray-900 rounded-md"
+                    >
+                      Women’s Clothes
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="block px-6 py-3 text-gray-700 hover:text-white hover:bg-gray-900 rounded-md"
+                    >
+                      Kids’ Clothes
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="block px-6 py-3 text-gray-700 hover:text-white hover:bg-gray-900 rounded-md"
+                    >
+                      Bags & Shoes
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
           <a
             href="#"
-            className="relative text-slate-600 font-normal hover:text-black group transition-colors"
+            className="text-gray-600 hover:text-black transition-colors"
           >
             On Sale
-            <span className="absolute bottom-0 left-0 w-full h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
           </a>
           <a
             href="#"
-            className="relative text-slate-600 font-normal hover:text-black group transition-colors"
+            className="text-gray-600 hover:text-black transition-colors"
           >
             New Arrivals
-            <span className="absolute bottom-0 left-0 w-full h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
           </a>
           <a
             href="#"
-            className="relative text-slate-600 font-normal hover:text-black group transition-colors"
+            className="text-gray-600 hover:text-black transition-colors"
           >
             Brands
-            <span className="absolute bottom-0 left-0 w-full h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
           </a>
         </nav>
 
-        {/* Search Form */}
-        <div className="flex items-center space-x-6">
-          <div className="hidden lg:flex items-center bg-slate-100 rounded-full w-[545px] px-3 py-2 gap-3">
-            <CiSearch className="h-[24px] w-[24px] text-slate-500" />
-            <input
-              type="text"
-              placeholder="Search for products..."
-              className="bg-slate-100 outline-none text-sm w-full"
-            />
-          </div>
+        {/* Search Bar */}
+        <div className="hidden lg:flex items-center bg-gray-100 rounded-full px-4 py-2 w-[500px]">
+          <CiSearch className="text-gray-500" />
+          <input
+            type="text"
+            placeholder="Search for products..."
+            className="w-full bg-gray-100 outline-none px-3 text-sm"
+          />
         </div>
 
-        {/* Icons with 14px gap */}
-        <div className="flex items-center space-x-3.5">
-          <BiCart className="h-[24px] w-[24px]" />
-          <TbUserCircle className="h-[24px] w-[24px]" />
+        {/* Icons */}
+        <div className="flex items-center space-x-4">
+          <BiCart className="text-2xl text-gray-600 hover:text-black transition-colors" />
+          <TbUserCircle className="text-2xl text-gray-600 hover:text-black transition-colors" />
         </div>
       </div>
     </header>
