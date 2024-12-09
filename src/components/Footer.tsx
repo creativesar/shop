@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const Footer = () => {
   return (
@@ -17,7 +18,7 @@ const Footer = () => {
                 {/* Email Input */}
                 <div className="input-group focus-within:shadow-lg pl-4 transition-all relative items-center w-full rounded-full overflow-hidden flex bg-white mb-[14px]">
                   <div className="input-group-text mr-3">
-                    <img
+                    <Image
                       alt="email"
                       width="20"
                       height="20"
