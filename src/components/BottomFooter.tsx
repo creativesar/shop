@@ -19,53 +19,49 @@ const BottomFooter = () => {
               alt="Visa"
               width="33"
               height="100"
-              decoding="async"
               className="max-h-[15px]"
               src="/Visa.svg"
+              priority
             />
           </span>
           <span className="mr-3 w-[46px] h-[30px] rounded-[5px] border-[#D6DCE5] bg-white flex items-center justify-center">
             <Image
               alt="MasterCard"
-              fetchpriority="high"
               width="33"
               height="100"
-              decoding="async"
               className="max-h-[15px]"
               src="/mastercard.svg"
+              priority
             />
           </span>
           <span className="mr-3 w-[46px] h-[30px] rounded-[5px] border-[#D6DCE5] bg-white flex items-center justify-center">
             <Image
               alt="PayPal"
-              fetchpriority="high"
               width="33"
               height="100"
-              decoding="async"
               className="max-h-[15px]"
               src="/paypal.svg"
+              priority
             />
           </span>
           <span className="mr-3 w-[46px] h-[30px] rounded-[5px] border-[#D6DCE5] bg-white flex items-center justify-center">
             <Image
               alt="Apple Pay"
-              fetchpriority="high"
               width="33"
               height="100"
-              decoding="async"
               className="max-h-[15px]"
               src="/applePay.svg"
+              priority
             />
           </span>
           <span className="w-[46px] h-[30px] rounded-[5px] border-[#D6DCE5] bg-white flex items-center justify-center">
             <Image
               alt="Google Pay"
-              fetchpriority="high"
               width="33"
               height="100"
-              decoding="async"
               className="max-h-[15px]"
               src="/googlePay.svg"
+              priority
             />
           </span>
         </div>
