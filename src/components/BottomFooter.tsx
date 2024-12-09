@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const BottomFooter = () => {
   return (
@@ -14,9 +15,8 @@ const BottomFooter = () => {
         </p>
         <div className="flex items-center">
           <span className="mr-3 w-[46px] h-[30px] rounded-[5px] border-[#D6DCE5] bg-white flex items-center justify-center">
-            <img
+            <Image
               alt="Visa"
-              fetchpriority="high"
               width="33"
               height="100"
               decoding="async"
@@ -25,7 +25,7 @@ const BottomFooter = () => {
             />
           </span>
           <span className="mr-3 w-[46px] h-[30px] rounded-[5px] border-[#D6DCE5] bg-white flex items-center justify-center">
-            <img
+            <Image
               alt="MasterCard"
               fetchpriority="high"
               width="33"
@@ -36,7 +36,7 @@ const BottomFooter = () => {
             />
           </span>
           <span className="mr-3 w-[46px] h-[30px] rounded-[5px] border-[#D6DCE5] bg-white flex items-center justify-center">
-            <img
+            <Image
               alt="PayPal"
               fetchpriority="high"
               width="33"
@@ -47,7 +47,7 @@ const BottomFooter = () => {
             />
           </span>
           <span className="mr-3 w-[46px] h-[30px] rounded-[5px] border-[#D6DCE5] bg-white flex items-center justify-center">
-            <img
+            <Image
               alt="Apple Pay"
               fetchpriority="high"
               width="33"
@@ -58,7 +58,7 @@ const BottomFooter = () => {
             />
           </span>
           <span className="w-[46px] h-[30px] rounded-[5px] border-[#D6DCE5] bg-white flex items-center justify-center">
-            <img
+            <Image
               alt="Google Pay"
               fetchpriority="high"
               width="33"
