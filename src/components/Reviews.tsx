@@ -2,7 +2,14 @@
 
 import React, { useState } from "react";
 
-const Reviews = [
+type Review = {
+  id: number;
+  name: string;
+  rating: number;
+  testimonial: string;
+};
+
+const Reviews: Review[] = [
   {
     id: 1,
     name: "Alex K.",
@@ -26,7 +33,11 @@ const Reviews = [
   },
 ];
 
-const StarRating = ({ rating }) => (
+type StarRatingProps = {
+  rating: number;
+};
+
+const StarRating: React.FC<StarRatingProps> = ({ rating }) => (
   <div className="flex mb-2">
     {Array.from({ length: 5 }, (_, i) => (
       <svg
@@ -42,7 +53,13 @@ const StarRating = ({ rating }) => (
   </div>
 );
 
-const ReviewCard = ({ name, rating, testimonial }) => (
+type ReviewCardProps = {
+  name: string;
+  rating: number;
+  testimonial: string;
+};
+
+const ReviewCard: React.FC<ReviewCardProps> = ({ name, rating, testimonial }) => (
   <div className="border rounded-lg p-6 text-center bg-white shadow-sm">
     <StarRating rating={rating} />
     <p className="italic text-gray-600 mb-4">{testimonial}</p>
@@ -50,7 +67,7 @@ const ReviewCard = ({ name, rating, testimonial }) => (
   </div>
 );
 
-const ReviewsSection = () => {
+const ReviewsSection: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {
