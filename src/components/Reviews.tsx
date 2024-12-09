@@ -8,21 +8,21 @@ const Reviews = [
     name: "Alex K.",
     rating: 5,
     testimonial:
-      "Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions.",
+      'Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions.',
   },
   {
     id: 2,
     name: "Sarah M.",
     rating: 5,
     testimonial:
-      "I am blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.",
+      'I am blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I\'ve bought has exceeded my expectations.',
   },
   {
     id: 3,
     name: "James L.",
     rating: 5,
     testimonial:
-      "As someone who is always on the lookout for unique fashion pieces, I am thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends.",
+      'As someone who is always on the lookout for unique fashion pieces, I am thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends.',
   },
 ];
 
@@ -45,7 +45,7 @@ const StarRating = ({ rating }) => (
 const ReviewCard = ({ name, rating, testimonial }) => (
   <div className="border rounded-lg p-6 text-center bg-white shadow-sm">
     <StarRating rating={rating} />
-    <p className="italic text-gray-600 mb-4">"{testimonial}"</p>
+    <p className="italic text-gray-600 mb-4">{testimonial}</p>
     <h3 className="font-bold text-gray-800">{name}</h3>
   </div>
 );
