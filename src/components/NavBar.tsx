@@ -27,7 +27,7 @@ const NavBar = () => {
       {/* Main Navigation */}
       <div className="flex justify-between items-center px-8 py-4">
         {/* Logo */}
-        <h1 className="text-2xl font-bold text-gray-900">SHOP.CO</h1>
+        <h1 className="text-2xl font-bold font-integral text-gray-900">SHOP.CO</h1>
 
         {/* Navigation Links */}
         <nav className="hidden md:flex items-center space-x-8 relative">
