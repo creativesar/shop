@@ -1,13 +1,15 @@
-'use client'
+'use client';
 
 import React, { useState } from "react";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { BiCart } from "react-icons/bi";
 import { TbUserCircle } from "react-icons/tb";
 import { CiSearch } from "react-icons/ci";
+import { HiMenuAlt3 } from "react-icons/hi";
 
 const NavBar = () => {
   const [isShopDropdownOpen, setIsShopDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <header className="bg-white shadow-sm border-b w-full">
@@ -25,9 +27,21 @@ const NavBar = () => {
       </div>
 
       {/* Main Navigation */}
-      <div className="flex justify-between items-center px-8 py-4">
-        {/* Logo */}
-        <h1 className="text-2xl font-bold font-integral text-gray-900">SHOP.CO</h1>
+      <div className="flex justify-between items-center px-4 py-4">
+        {/* Hamburger Menu Icon */}
+        <div className="flex items-center space-x-2">
+          <button
+            className="md:hidden text-2xl text-gray-600 hover:text-black transition-colors"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            <HiMenuAlt3 />
+          </button>
+
+          {/* Logo */}
+          <h1 className="text-xl md:text-2xl font-bold font-integral text-gray-900">
+            SHOP.CO
+          </h1>
+        </div>
 
         {/* Navigation Links */}
         <nav className="hidden md:flex items-center space-x-8 relative">
@@ -105,7 +119,12 @@ const NavBar = () => {
           </a>
         </nav>
 
-        {/* Search Bar */}
+        {/* Icons Section */}
+        <div className="flex items-center space-x-4">
+          {/* Search Icon for Mobile */}
+          <CiSearch className="md:hidden text-2xl text-gray-600 hover:text-black transition-colors" />
+
+        {/* Search Bar for Desktop */}
         <div className="hidden lg:flex items-center bg-gray-100 rounded-full px-4 py-2 w-[500px]">
           <CiSearch className="text-gray-500" />
           <input
@@ -114,13 +133,41 @@ const NavBar = () => {
             className="w-full bg-gray-100 outline-none px-3 text-sm"
           />
         </div>
+         {/* Cart Icon */}
+         <BiCart className="text-2xl text-gray-600 hover:text-black transition-colors" />
 
-        {/* Icons */}
-        <div className="flex items-center space-x-4">
-          <BiCart className="text-2xl text-gray-600 hover:text-black transition-colors" />
-          <TbUserCircle className="text-2xl text-gray-600 hover:text-black transition-colors" />
-        </div>
+{/* User Icon */}
+<TbUserCircle className="hidden md:block text-2xl text-gray-600 hover:text-black transition-colors" />
+</div>
       </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="absolute top-16 left-0 w-full bg-white shadow-md z-10 md:hidden">
+          <ul className="py-4 px-6 space-y-4 text-gray-700">
+            <li>
+              <a href="#" className="block hover:text-black transition-colors">
+                Shop
+              </a>
+            </li>
+            <li>
+              <a href="#" className="block hover:text-black transition-colors">
+                On Sale
+              </a>
+            </li>
+            <li>
+              <a href="#" className="block hover:text-black transition-colors">
+                New Arrivals
+              </a>
+            </li>
+            <li>
+              <a href="#" className="block hover:text-black transition-colors">
+                Brands
+              </a>
+            </li>
+          </ul>
+        </div>
+      )}
     </header>
   );
 };
