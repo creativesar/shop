@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="px-4">
           {/* Newsletter Section */}
           <div className="relative grid grid-cols-1 md:grid-cols-2 py-9 md:py-11 px-6 md:px-16 max-w-frame mx-auto bg-black rounded-[20px]">
-            <p className="font-bold text-[32px] md:text-[40px] text-white mb-9 md:mb-0">
+            <p className="font-bold font-integral text-[32px] md:text-[40px] text-white mb-9 md:mb-0">
               STAY UP TO DATE ABOUT OUR LATEST OFFERS
             </p>
             <div className="flex items-center">
@@ -56,7 +56,7 @@ const Footer = () => {
           <nav className="lg:grid lg:grid-cols-12 mb-8">
             {/* Brand Information */}
             <div className="flex flex-col lg:col-span-3 lg:max-w-[248px]">
-              <h1 className="text-[28px] lg:text-[32px] mb-6 font-bold">SHOP.CO</h1>
+              <h1 className="text-[28px] lg:text-[32px] mb-6 font-bold font-integral">SHOP.CO</h1>
               <p className="text-black/60 text-sm mb-9">
                 We have clothes that suit your style and which you’re proud to wear. From women to men.
               </p>
