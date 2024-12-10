@@ -51,7 +51,7 @@ const Footer = () => {
       </div>
 
       {/* Footer Links Section */}
-      <div className="pt-8 md:pt-[50px] bg-[#F0F0F0] px-4 pb-4">
+      <div className="pt-8 md:pt-[50px] bg-[#F0F0F0] px-6 pb-4">
         <div className="max-w-frame mx-auto">
           <nav className="lg:grid lg:grid-cols-12 mb-8">
             {/* Brand Information */}

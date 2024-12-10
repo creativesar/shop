@@ -15,7 +15,7 @@ const NavBar = () => {
     <header className="bg-white shadow-sm border-b w-full">
       {/* Announcement Bar */}
       <div className="bg-black text-white py-2 text-xs sm:text-sm flex justify-center items-center">
-        <p className="text-center text-[12px] lg:text-[14px]">
+        <p className="text-center text-[12px] lg:text-[14px] px-">
           Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!{" "}
           <a
             href="#"
@@ -27,7 +27,7 @@ const NavBar = () => {
       </div>
 
       {/* Main Navigation */}
-      <div className="flex justify-between items-center px-4 py-4">
+      <div className="flex justify-between items-center px-6 py-4">
         {/* Hamburger Menu Icon */}
         <div className="flex items-center space-x-2">
           <button
