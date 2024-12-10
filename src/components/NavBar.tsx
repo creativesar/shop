@@ -121,24 +121,25 @@ const NavBar = () => {
 
         {/* Icons Section */}
         <div className="flex items-center space-x-4">
-          {/* Search Icon for Mobile */}
-          <CiSearch className="md:hidden text-2xl text-gray-600 hover:text-black transition-colors" />
+          {/* Search Icon for Tablet and Desktop */}
+          <CiSearch className="md:flex lg:hidden text-2xl text-gray-600 hover:text-black transition-colors" />
 
-        {/* Search Bar for Desktop */}
-        <div className="hidden lg:flex items-center bg-gray-100 rounded-full px-4 py-2 w-[500px]">
-          <CiSearch className="text-gray-500" />
-          <input
-            type="text"
-            placeholder="Search for products..."
-            className="w-full bg-gray-100 outline-none px-3 text-sm"
-          />
+          {/* Search Bar for Tablet and Desktop */}
+          <div className="hidden lg:flex items-center bg-gray-100 rounded-full px-4 py-2 w-[500px]">
+            <CiSearch className="text-gray-500" />
+            <input
+              type="text"
+              placeholder="Search for products..."
+              className="w-full bg-gray-100 outline-none px-3 text-sm"
+            />
+          </div>
+
+          {/* Cart Icon */}
+          <BiCart className="text-2xl text-gray-600 hover:text-black transition-colors" />
+
+          {/* User Icon */}
+          <TbUserCircle className="text-2xl text-gray-600 hover:text-black transition-colors" />
         </div>
-         {/* Cart Icon */}
-         <BiCart className="text-2xl text-gray-600 hover:text-black transition-colors" />
-
-{/* User Icon */}
-<TbUserCircle className="hidden md:block text-2xl text-gray-600 hover:text-black transition-colors" />
-</div>
       </div>
 
       {/* Mobile Menu */}
