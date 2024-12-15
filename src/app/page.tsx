@@ -1,9 +1,12 @@
+'use client'
+
 import BrandLogos from "@/components/BrandLogos";
 import Hero from "@/components/Hero";
 import NewArrivals from "@/components/NewArrivals";
 import TopSeller from "@/components/TopSeller";
 import ProductLayout from "@/components/ProductLayout";
 import Reviews from "@/components/Reviews";
+import Link from "next/link";
 
 // Unused import removed (Image from "next/image")
 
@@ -28,6 +31,7 @@ export default function Home() {
       {/* Reviews Section */}
       <Reviews />
 
+      
     </div>
   );
 }

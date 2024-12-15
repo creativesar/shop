@@ -15,8 +15,14 @@ const config: Config = {
   			'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
   		},
   		fontFamily: {
-  			integral: ['IntegralCF', 'sans-serif'],
-  			satoshi: ['Satoshi', 'sans-serif']
+  			integral: [
+  				'IntegralCF',
+  				'sans-serif'
+  			],
+  			satoshi: [
+  				'Satoshi',
+  				'sans-serif'
+  			]
   		},
   		keyframes: {
   			zoomOut: {
@@ -92,6 +98,8 @@ const config: Config = {
   			'50%': {
   				opacity: '1'
   			}
+
+			
   		}
   	}
   },

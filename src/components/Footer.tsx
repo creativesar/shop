@@ -1,5 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
+import { FaTwitter } from 'react-icons/fa';
+import { FaFacebookF } from 'react-icons/fa';
+import { FaInstagram } from 'react-icons/fa';
+import { AiOutlineGithub } from 'react-icons/ai';
 
 const Footer = () => {
   return (
@@ -62,29 +66,30 @@ const Footer = () => {
               </p>
               {/* Social Media Icons */}
               <div className="flex items-center">
-                {[
-                  { href: "https://twitter.com", icon: "twitter-icon-path" },
-                  { href: "https://facebook.com", icon: "facebook-icon-path" },
-                  { href: "https://instagram.com", icon: "instagram-icon-path" },
-                  { href: "https://github.com", icon: "github-icon-path" },
-                ].map((item, index) => (
-                  <a
-                    key={index}
-                    className="bg-white hover:bg-black hover:text-white transition-all mr-3 w-7 h-7 rounded-full border border-black/20 flex items-center justify-center p-1.5"
-                    href={item.href}
-                  >
-                    <svg
-                      stroke="currentColor"
-                      fill="currentColor"
-                      strokeWidth="0"
-                      viewBox="0 0 512 512"
-                      className="w-5 h-5"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d={item.icon} />
-                    </svg>
-                  </a>
-                ))}
+                <a
+                  className="bg-white hover:bg-black hover:text-white transition-all mr-3 w-7 h-7 rounded-full border border-black/20 flex items-center justify-center p-1.5"
+                  href="https://twitter.com"
+                >
+                  <FaTwitter className="w-5 h-5 text-black hover:text-white" />
+                </a>
+                <a
+                  className="bg-white hover:bg-black hover:text-white transition-all mr-3 w-7 h-7 rounded-full border border-black/20 flex items-center justify-center p-1.5"
+                  href="https://facebook.com"
+                >
+                  <FaFacebookF className="w-5 h-5 text-black hover:text-white" />
+                </a>
+                <a
+                  className="bg-white hover:bg-black hover:text-white transition-all mr-3 w-7 h-7 rounded-full border border-black/20 flex items-center justify-center p-1.5"
+                  href="https://instagram.com"
+                >
+                  <FaInstagram className="w-5 h-5 text-black hover:text-white" />
+                </a>
+                <a
+                  className="bg-white hover:bg-black hover:text-white transition-all mr-3 w-7 h-7 rounded-full border border-black/20 flex items-center justify-center p-1.5"
+                  href="https://github.com"
+                >
+                  <AiOutlineGithub className="w-5 h-5 text-black hover:text-white" />
+                </a>
               </div>
             </div>
 
@@ -92,28 +97,28 @@ const Footer = () => {
             <div className="hidden lg:grid col-span-9 lg:grid-cols-4 lg:pl-10">
               {[
                 {
-                  title: "company",
-                  links: ["about", "features", "works", "career"],
+                  title: 'company',
+                  links: ['about', 'features', 'works', 'career'],
                 },
                 {
-                  title: "help",
+                  title: 'help',
                   links: [
-                    "customer support",
-                    "delivery details",
-                    "terms & conditions",
-                    "privacy policy",
+                    'customer support',
+                    'delivery details',
+                    'terms & conditions',
+                    'privacy policy',
                   ],
                 },
                 {
-                  title: "faq",
-                  links: ["account", "manage deliveries", "orders", "payment methods"],
+                  title: 'faq',
+                  links: ['account', 'manage deliveries', 'orders', 'payment methods'],
                 },
                 {
-                  title: "get in touch",
+                  title: 'get in touch',
                   links: [
-                    { text: "info@shop.co", isPlainText: true },
-                    { text: "+1 (888) 123-4567", isPlainText: true },
-                    { text: "New York, USA", isPlainText: true },
+                    { text: 'info@shop.co', isPlainText: true },
+                    { text: '+1 (888) 123-4567', isPlainText: true },
+                    { text: 'New York, USA', isPlainText: true },
                   ],
                 },
               ].map((section, index) => (
@@ -122,7 +127,7 @@ const Footer = () => {
                     {section.title}
                   </h3>
                   {section.links.map((link, linkIndex) =>
-                    typeof link === "string" ? (
+                    typeof link === 'string' ? (
                       <a
                         key={linkIndex}
                         className="capitalize text-black/60 text-sm md:text-base mb-4 w-fit"

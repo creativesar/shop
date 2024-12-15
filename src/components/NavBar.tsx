@@ -1,21 +1,39 @@
-'use client';
+"use client";
 
 import React, { useState } from "react";
-import { RiArrowDropDownLine } from "react-icons/ri";
+import Link from 'next/link';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
+} from "@/components/ui/navigation-menu";
+import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import { BiCart } from "react-icons/bi";
 import { TbUserCircle } from "react-icons/tb";
 import { CiSearch } from "react-icons/ci";
 import { HiMenuAlt3 } from "react-icons/hi";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 const NavBar = () => {
-  const [isShopDropdownOpen, setIsShopDropdownOpen] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   return (
     <header className="bg-white shadow-sm border-b w-full">
       {/* Announcement Bar */}
       <div className="bg-black text-white py-2 text-xs sm:text-sm flex justify-center items-center">
-        <p className="text-center text-[12px] lg:text-[14px] px-">
+        <p className="text-center text-[12px] lg:text-[14px]">
           Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!{" "}
           <a
             href="#"
@@ -30,12 +48,47 @@ const NavBar = () => {
       <div className="flex justify-between items-center px-6 py-4">
         {/* Hamburger Menu Icon */}
         <div className="flex items-center space-x-2">
-          <button
-            className="md:hidden text-2xl text-gray-600 hover:text-black transition-colors"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            <HiMenuAlt3 />
-          </button>
+          <Sheet>
+            <SheetTrigger asChild>
+              <button className="md:hidden text-2xl text-gray-600 hover:text-black transition-colors">
+                <HiMenuAlt3 />
+              </button>
+            </SheetTrigger>
+            <SheetContent side="left">
+              <SheetHeader>
+                <SheetTitle>Menu</SheetTitle>
+              </SheetHeader>
+              <ul className="py-4 px-6 space-y-4 text-gray-700">
+                <li>
+                  <Link href="#" className="block hover:text-black transition-colors font-normal font-satoshi">
+                    Shop
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="block hover:text-black transition-colors font-normal font-satoshi">
+                    On Sale
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="block hover:text-black transition-colors font-normal font-satoshi">
+                    New Arrivals
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="block hover:text-black transition-colors font-normal font-satoshi">
+                    Brands
+                  </Link>
+                </li>
+              </ul>
+              <SheetFooter>
+                <SheetClose asChild>
+                  <button className="text-gray-600 hover:text-black transition-colors">
+                    Close
+                  </button>
+                </SheetClose>
+              </SheetFooter>
+            </SheetContent>
+          </Sheet>
 
           {/* Logo */}
           <h1 className="text-xl md:text-2xl font-bold font-integral text-gray-900">
@@ -44,79 +97,74 @@ const NavBar = () => {
         </div>
 
         {/* Navigation Links */}
-        <nav className="hidden md:flex items-center space-x-8 relative">
-          {/* Shop Dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setIsShopDropdownOpen(true)}
-            onMouseLeave={() => setIsShopDropdownOpen(false)}
-          >
-            <button
-              className="flex items-center text-gray-600 hover:text-black transition-colors"
-              aria-haspopup="true"
-              aria-expanded={isShopDropdownOpen}
-            >
-              Shop
-              <RiArrowDropDownLine className="ml-1 text-xl" />
-            </button>
-            {/* Dropdown Menu */}
-            {isShopDropdownOpen && (
-              <div className="absolute left-0 top-10 w-64 bg-white shadow-lg rounded-lg z-20">
-                <ul className="py-2">
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-6 py-3 text-gray-700 hover:text-white hover:bg-gray-900 rounded-md"
-                    >
-                      Men’s Clothes
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-6 py-3 text-gray-700 hover:text-white hover:bg-gray-900 rounded-md"
-                    >
-                      Women’s Clothes
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-6 py-3 text-gray-700 hover:text-white hover:bg-gray-900 rounded-md"
-                    >
-                      Kids’ Clothes
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-6 py-3 text-gray-700 hover:text-white hover:bg-gray-900 rounded-md"
-                    >
-                      Bags & Shoes
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            )}
-          </div>
-          <a
-            href="#"
-            className="text-gray-600 hover:text-black transition-colors"
-          >
-            On Sale
-          </a>
-          <a
-            href="#"
-            className="text-gray-600 hover:text-black transition-colors"
-          >
-            New Arrivals
-          </a>
-          <a
-            href="#"
-            className="text-gray-600 hover:text-black transition-colors"
-          >
-            Brands
-          </a>
+        <nav className="hidden md:flex items-center space-x-8">
+          <NavigationMenu>
+            <NavigationMenuList>
+              {/* Shop Dropdown */}
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="font-normal font-satoshi">Shop</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="py-2 bg-white shadow-lg rounded-lg">
+                    <li>
+                      <Link
+                        href="./productdetails"
+                        className="block px-6 py-3 text-gray-700 hover:text-white hover:bg-gray-900 rounded-md"
+                      >
+                        Men’s Clothes
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="#"
+                        className="block px-6 py-3 text-gray-700 hover:text-white hover:bg-gray-900 rounded-md"
+                      >
+                        Women’s Clothes
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="#"
+                        className="block px-6 py-3 text-gray-700 hover:text-white hover:bg-gray-900 rounded-md"
+                      >
+                        Kids’ Clothes
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="#"
+                        className="block px-6 py-3 text-gray-700 hover:text-white hover:bg-gray-900 rounded-md"
+                      >
+                        Bags & Shoes
+                      </Link>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              {/* Other Links */}
+              <NavigationMenuItem>
+                <Link href="#" legacyBehavior passHref>
+                  <NavigationMenuLink className={`${navigationMenuTriggerStyle()} font-normal font-satoshi`}>
+                    On Sale
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Link href="#" legacyBehavior passHref>
+                  <NavigationMenuLink className={`${navigationMenuTriggerStyle()} font-normal font-satoshi`}>
+                    New Arrivals
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Link href="#" legacyBehavior passHref>
+                  <NavigationMenuLink className={`${navigationMenuTriggerStyle()} font-normal font-satoshi`}>
+                    Brands
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
         </nav>
 
         {/* Icons Section */}
@@ -141,34 +189,6 @@ const NavBar = () => {
           <TbUserCircle className="text-2xl text-gray-600 hover:text-black transition-colors" />
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="absolute top-16 left-0 w-full bg-white shadow-md z-10 md:hidden">
-          <ul className="py-4 px-6 space-y-4 text-gray-700">
-            <li>
-              <a href="#" className="block hover:text-black transition-colors">
-                Shop
-              </a>
-            </li>
-            <li>
-              <a href="#" className="block hover:text-black transition-colors">
-                On Sale
-              </a>
-            </li>
-            <li>
-              <a href="#" className="block hover:text-black transition-colors">
-                New Arrivals
-              </a>
-            </li>
-            <li>
-              <a href="#" className="block hover:text-black transition-colors">
-                Brands
-              </a>
-            </li>
-          </ul>
-        </div>
-      )}
     </header>
   );
 };

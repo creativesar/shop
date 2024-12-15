@@ -25,20 +25,42 @@ export default function Hero() {
           </div>
           
           {/* Brand Stats */}
-          <div className="flex md:h-full md:max-h-11 lg:max-h-[52px] xl:max-h-[68px] items-center justify-center md:justify-start flex-wrap sm:flex-nowrap md:space-x-3 lg:space-x-6 xl:space-x-6 md:mb-[116px]">
+          <div
+            className="flex h-full max-h-11 items-center justify-center flex-wrap sm:flex-nowrap space-x-3 mb-[116px] hidden md:flex 2xl:hidden"
+          >
             <div className="flex flex-col">
-              <span className="font-bold font-satoshi text-2xl md:text-xl lg:text-3xl xl:text-[40px] xl:mb-2 ">200+</span>
-              <span className="text-xs xl:text-base text-black/60 text-nowrap font-satoshi">International Brands</span>
+              <span className="font-bold font-satoshi text-2xl md:text-xl lg:text-3xl xl:text-[40px] xl:mb-2">
+                200+
+              </span>
+              <span className="text-xs xl:text-base text-black/60 text-nowrap font-satoshi">
+                International Brands
+              </span>
             </div>
-            <div data-orientation="vertical" role="none" className="shrink-0 w-[1px] ml-6 md:ml-0 h-12 md:h-full bg-black/10"></div>
-            <div className="flex flex-col ml-6 md:ml-0">
-              <span className="font-bold font-satoshi text-2xl md:text-xl lg:text-3xl xl:text-[40px] xl:mb-2">2000+</span>
-              <span className="text-xs xl:text-base text-black/60 text-nowrap font-satoshi">High-Quality Products</span>
+            <div
+              data-orientation="vertical"
+              role="none"
+              className="shrink-0 w-[1px] ml-6 h-12 bg-black/10"
+            ></div>
+            <div className="flex flex-col ml-6">
+              <span className="font-bold font-satoshi text-2xl md:text-xl lg:text-3xl xl:text-[40px] xl:mb-2">
+                2000+
+              </span>
+              <span className="text-xs xl:text-base text-black/60 text-nowrap font-satoshi">
+                High-Quality Products
+              </span>
             </div>
-            <div data-orientation="vertical" role="none" className="shrink-0 h-full w-[1px] hidden sm:block sm:h-12 md:h-full ml-6 md:ml-0 bg-black/10"></div>
-            <div className="flex flex-col w-full text-center sm:w-auto sm:text-left mt-3 sm:mt-0 sm:ml-6 md:ml-0">
-              <span className="font-bold font-satoshi text-2xl md:text-xl lg:text-3xl xl:text-[40px] xl:mb-2">30,000+</span>
-              <span className="text-xs xl:text-base text-black/60 text-nowrap font-satoshi">Happy Customers</span>
+            <div
+              data-orientation="vertical"
+              role="none"
+              className="shrink-0 h-full w-[1px] hidden sm:block sm:h-12 ml-6 bg-black/10"
+            ></div>
+            <div className="flex flex-col w-full text-center sm:w-auto sm:text-left mt-3 sm:mt-0 sm:ml-6">
+              <span className="font-bold font-satoshi text-2xl md:text-xl lg:text-3xl xl:text-[40px] xl:mb-2">
+                30,000+
+              </span>
+              <span className="text-xs xl:text-base text-black/60 text-nowrap font-satoshi">
+                Happy Customers
+              </span>
             </div>
           </div>
         </div>
