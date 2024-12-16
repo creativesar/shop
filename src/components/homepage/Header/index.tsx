@@ -1,41 +1,13 @@
-'use client'
-
-import { useEffect } from "react";
-import { gsap } from "gsap";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { integralCF } from "@/styles/fonts";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 import * as motion from "framer-motion/client";
 
-gsap.registerPlugin(SplitText); // Register the SplitText plugin
-
 const Header = () => {
-  useEffect(() => {
-    // Select the text element
-    const textElement = document.querySelector(".animated-text");
-
-    if (textElement) {
-      // Split the text into individual letters
-      const split = new SplitText(textElement, { type: "chars" });
-
-      // GSAP animation: Text will animate one letter at a time
-      gsap.from(split.chars, {
-        opacity: 0,
-        x: 50,
-        stagger: 0.05, // Adjust this for the delay between letters
-        duration: 1,
-        ease: "power2.out",
-      });
-
-      return () => {
-        split.revert(); // Cleanup SplitText instance when the component is unmounted
-      };
-    }
-  }, []);
-
   return (
     <header className="bg-[#F2F0F1] pt-10 md:pt-24 overflow-hidden">
       <div className="md:max-w-frame mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
@@ -47,7 +19,7 @@ const Header = () => {
             transition={{ duration: 0.6 }}
             className={cn([
               integralCF.className,
-              "text-4xl lg:text-[64px] lg:leading-[64px] mb-5 lg:mb-8 animated-text", // Add the class "animated-text"
+              "text-4xl lg:text-[64px] lg:leading-[64px] mb-5 lg:mb-8",
             ])}
           >
             FIND CLOTHES THAT MATCHES YOUR STYLE
