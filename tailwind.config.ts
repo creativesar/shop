@@ -91,14 +91,32 @@ const config: Config = {
             height: "0",
           },
         },
+        // Custom pulse slow animation
+        "pulse-slow": {
+          "0%": {
+            transform: "scale(1)",
+            opacity: "1",
+          },
+          "50%": {
+            transform: "scale(1.1)",
+            opacity: "0.8",
+          },
+          "100%": {
+            transform: "scale(1)",
+            opacity: "1",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        // Custom animation for slow pulse
+        "pulse-slow": "pulse-slow 4s ease-in-out infinite",
       },
     },
   },
   plugins: [require("tailwindcss-animate")],
   safelist: ["backdrop-blur-[2px]"],
 };
+
 export default config;

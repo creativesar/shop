@@ -1,13 +1,41 @@
+'use client'
+
+import { useEffect } from "react";
+import { gsap } from "gsap";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { integralCF } from "@/styles/fonts";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 import * as motion from "framer-motion/client";
 
+gsap.registerPlugin(SplitText); // Register the SplitText plugin
+
 const Header = () => {
+  useEffect(() => {
+    // Select the text element
+    const textElement = document.querySelector(".animated-text");
+
+    if (textElement) {
+      // Split the text into individual letters
+      const split = new SplitText(textElement, { type: "chars" });
+
+      // GSAP animation: Text will animate one letter at a time
+      gsap.from(split.chars, {
+        opacity: 0,
+        x: 50,
+        stagger: 0.05, // Adjust this for the delay between letters
+        duration: 1,
+        ease: "power2.out",
+      });
+
+      return () => {
+        split.revert(); // Cleanup SplitText instance when the component is unmounted
+      };
+    }
+  }, []);
+
   return (
     <header className="bg-[#F2F0F1] pt-10 md:pt-24 overflow-hidden">
       <div className="md:max-w-frame mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
@@ -19,7 +47,7 @@ const Header = () => {
             transition={{ duration: 0.6 }}
             className={cn([
               integralCF.className,
-              "text-4xl lg:text-[64px] lg:leading-[64px] mb-5 lg:mb-8 flip-in",
+              "text-4xl lg:text-[64px] lg:leading-[64px] mb-5 lg:mb-8 animated-text", // Add the class "animated-text"
             ])}
           >
             FIND CLOTHES THAT MATCHES YOUR STYLE
@@ -55,7 +83,7 @@ const Header = () => {
             transition={{ delay: 1.5, duration: 0.6 }}
             className="flex md:h-full md:max-h-11 lg:max-h-[52px] xl:max-h-[68px] items-center justify-center md:justify-start flex-wrap sm:flex-nowrap md:space-x-3 lg:space-x-6 xl:space-x-8 md:mb-[116px]"
           >
-            <div className="flex flex-col md:hidden">
+            <div className="flex flex-col">
               <span className="font-bold text-2xl md:text-xl lg:text-3xl xl:text-[40px] xl:mb-2">
                 200+
               </span>
@@ -67,7 +95,7 @@ const Header = () => {
               className="ml-6 md:ml-0 h-12 md:h-full bg-black/10"
               orientation="vertical"
             />
-            <div className="flex flex-col md:hidden ml-6 md:ml-0">
+            <div className="flex flex-col ml-6 md:ml-0">
               <span className="font-bold text-2xl md:text-xl lg:text-3xl xl:text-[40px] xl:mb-2">
                 2000+
               </span>
@@ -79,7 +107,7 @@ const Header = () => {
               className="hidden sm:block sm:h-12 md:h-full ml-6 md:ml-0 bg-black/10"
               orientation="vertical"
             />
-            <div className="flex flex-col w-full text-center sm:w-auto sm:text-left mt-3 sm:mt-0 sm:ml-6 md:ml-0 md:hidden">
+            <div className="flex flex-col w-full text-center sm:w-auto sm:text-left mt-3 sm:mt-0 sm:ml-6 md:ml-0">
               <span className="font-bold text-2xl md:text-xl lg:text-3xl xl:text-[40px] xl:mb-2">
                 3000+
               </span>
