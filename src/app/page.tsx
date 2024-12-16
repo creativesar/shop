@@ -157,18 +157,18 @@ export const relatedProductData: Product[] = [
     },
     rating: 5.0,
   },
-
-  id: 16,
-  title: "One Life Graphic T-Shirt",
-  srcUrl: "/images/pic16.png",
-  gallery: ["/images/pic16.png"],
-  price: 300,
-  discount: {
-    amount: 0,
-    percentage: 13.33,
+  {
+    id: 16,
+    title: "One Life Graphic T-Shirt",
+    srcUrl: "/images/pic16.png",
+    gallery: ["/images/pic16.png"],
+    price: 300,
+    discount: {
+      amount: 0,
+      percentage: 13.33,
+    },
+    rating: 4.5,
   },
-  rating: 4.5,
-},
 ];
 
 export const reviewsData: Review[] = [
