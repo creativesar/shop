@@ -16,6 +16,12 @@ const data: Product[] = [
   ...relatedProductData,
 ];
 
+export async function generateStaticParams() {
+  return data.map((product) => ({
+    slug: [product.id.toString()],
+  }));
+}
+
 export default function ProductPage({
   params,
 }: {
@@ -25,7 +31,7 @@ export default function ProductPage({
     (product) => product.id === Number(params.slug[0])
   );
 
-  if (!productData?.title) {
+  if (!productData) {
     notFound();
   }
 
@@ -33,7 +39,7 @@ export default function ProductPage({
     <main>
       <div className="max-w-frame mx-auto px-4 xl:px-0">
         <hr className="h-[1px] border-t-black/10 mb-5 sm:mb-6" />
-        <BreadcrumbProduct title={productData?.title ?? "product"} />
+        <BreadcrumbProduct title={productData.title} />
         <section className="mb-11">
           <Header data={productData} />
         </section>
