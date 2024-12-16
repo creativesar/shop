@@ -10,6 +10,7 @@ import {
 import ReviewCard from "@/components/common/ReviewCard";
 import { reviewsData } from "@/app/page";
 import Link from "next/link";
+import Image from "next/image";
 
 const ReviewsContent = () => {
   return (
@@ -23,7 +24,17 @@ const ReviewsContent = () => {
         </div>
         <div className="flex items-center space-x-2.5">
           <Select defaultValue="latest">
-            <SelectTrigger className="min-w-[120px] font-medium text-xs sm:text-base px-4 py-3 sm:px-5 sm:py-4 text-black bg-[#F0F0F0] border-none rounded-full h-12">
+            <SelectTrigger className="min-w-[120px] font-medium text-xs sm:text-base px-4 py-3 sm:px-5 sm:py-4 text-black bg-[#F0F0F0] border-none rounded-full h-12 flex items-center space-x-4">
+              {/* Circle with Icon */}
+              <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#F0F0F0]">
+                <Image
+                  src="/icons/sortitem.svg" // Ensure the path is correct
+                  alt="Sort Icon"
+                  width={24}
+                  height={24}
+                />
+              </div>
+              {/* Select Value */}
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
