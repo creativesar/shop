@@ -161,11 +161,11 @@ export const relatedProductData: Product[] = [
     id: 16,
     title: "One Life Graphic T-Shirt",
     srcUrl: "/images/pic16.png",
-    gallery: ["/images/pic16.png, /images/pic10.png", "/images/pic11.png"],
+    gallery: ["/images/pic16.png", "/images/pic10.png", "/images/pic11.png"],
     price: 300,
     discount: {
       amount: 0,
-      percentage: 13.33,
+      percentage: 40,
     },
     rating: 4.5,
   },
