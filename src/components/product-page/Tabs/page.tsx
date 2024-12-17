@@ -3,9 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import React, { useState } from "react";
-// import ProductDetailsContent from "./ProductDetailsContent";
 import ReviewsContent from "./ReviewsContent";
-// import FaqContent from "./FaqContent";
 
 type TabBtn = {
   id: number;
@@ -51,9 +49,9 @@ const Tabs = () => {
         ))}
       </div>
       <div className="mb-12 sm:mb-16">
-        {/* {active === 1 && <ProductDetailsContent />} */}
+       
         {active === 2 && <ReviewsContent />}
-        {/* {active === 3 && <FaqContent />} */}
+     
       </div>
     </div>
   );
