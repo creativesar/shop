@@ -1,13 +1,12 @@
-// src/app/payment/page.tsx
-"use client"; // Marking this as a client component
+"use client"; 
 
 import React, { useState } from "react";
-import { useRouter } from "next/navigation"; // Correct import for Next.js 13+ navigation
+import { useRouter } from "next/navigation"; 
 import { FaCcVisa, FaCcMastercard } from "react-icons/fa";
-
+import { PDFDocument, rgb } from "pdf-lib"; 
 
 export default function PaymentPage() {
-  const router = useRouter(); // Use Next.js router for navigation
+  const router = useRouter(); 
 
   const [formData, setFormData] = useState({
     name: "",
@@ -48,16 +47,59 @@ export default function PaymentPage() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const generatePDFReceipt = async () => {
+    const pdfDoc = await PDFDocument.create();
+    const page = pdfDoc.addPage([600, 400]);
+
+    page.drawText("Payment Receipt", {
+      x: 50,
+      y: 350,
+      size: 20,
+      color: rgb(0, 0, 0),
+    });
+
+    page.drawText(`Name: ${formData.name}`, {
+      x: 50,
+      y: 320,
+      size: 12,
+      color: rgb(0, 0, 0),
+    });
+
+    page.drawText(
+      `Address: ${formData.address}, ${formData.city}, ${formData.state} - ${formData.zipCode}`,
+      {
+        x: 50,
+        y: 300,
+        size: 12,
+        color: rgb(0, 0, 0),
+      }
+    );
+
+    page.drawText(
+      `Order Confirmation: Your order will be delivered within 5-7 business days.`,
+      {
+        x: 50,
+        y: 280,
+        size: 12,
+        color: rgb(0, 0, 0),
+      }
+    );
+
+    const pdfBytes = await pdfDoc.save();
+
+    // Create a Blob for download
+    const blob = new Blob([pdfBytes], { type: "application/pdf" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "payment-receipt.pdf";
+    link.click();
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Generate the PDF receipt
-    const doc = new jsPDF();
-    doc.text("Payment Receipt", 20, 10);
-    doc.text(`Name: ${formData.name}`, 20, 20);
-    doc.text(`Address: ${formData.address}, ${formData.city}, ${formData.state}`, 20, 30);
-    doc.text(`Order Confirmation: Your order will be delivered within 5-7 business days.`, 20, 40);
-    doc.save("payment-receipt.pdf");
+    await generatePDFReceipt();
 
     // Redirect to order confirmation page after payment
     router.push("/order-confirmation");
