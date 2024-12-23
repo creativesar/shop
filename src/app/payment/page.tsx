@@ -4,7 +4,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation"; // Correct import for Next.js 13+ navigation
 import { FaCcVisa, FaCcMastercard } from "react-icons/fa";
-import { jsPDF } from "jspdf"; // To generate PDF receipt
+
 
 export default function PaymentPage() {
   const router = useRouter(); // Use Next.js router for navigation
