@@ -6,6 +6,7 @@ import Reviews from "@/components/homepage/Reviews/page";
 import { Product } from "@/types/product.types";
 import { Review } from "@/types/review.types";
 
+
 export const newArrivalsData: Product[] = [
   {
     id: 1,
@@ -246,3 +247,5 @@ export default function Home() {
     </>
   );
 }
+
+

@@ -111,6 +111,7 @@ const TopNavbar = () => {
               alt="search"
               className="min-w-5 min-h-5"
             />
+          
           </InputGroup.Text>
           <InputGroup.Input
             type="search"
@@ -131,7 +132,7 @@ const TopNavbar = () => {
             />
           </Link>
           <CartBtn />
-          <Link href="/#signin" className="p-1">
+          <Link href="/sign-in" className="p-1">
             <Image
               priority
               src="/icons/user.svg"
