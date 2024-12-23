@@ -6,13 +6,8 @@ import TopNavbar from "@/components/layout/Navbar/TopNavbar/page";
 import Footer from "@/components/layout/Footer/page";
 import HolyLoader from "holy-loader";
 import Providers from "./providers";
-import {
-  ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton
-} from '@clerk/nextjs'
+
+
 
 export const metadata: Metadata = {
   title: "Shopco",
@@ -29,15 +24,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+   
       <html lang="en">
         <body className={satoshi.className}>
-        <SignedOut>
-            <SignInButton />
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
           <HolyLoader color="#868686" />
           <TopBanner />
           <Providers>
@@ -47,6 +36,6 @@ export default function RootLayout({
           <Footer />
         </body>
       </html>
-    </ClerkProvider>
+   
   );
 }
