@@ -1,9 +1,14 @@
-"use client";
+// src/app/payment/page.tsx
+"use client"; // Marking this as a client component
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation"; // Correct import for Next.js 13+ navigation
 import { FaCcVisa, FaCcMastercard } from "react-icons/fa";
+import { jsPDF } from "jspdf"; // To generate PDF receipt
 
 export default function PaymentPage() {
+  const router = useRouter(); // Use Next.js router for navigation
+
   const [formData, setFormData] = useState({
     name: "",
     address: "",
@@ -45,8 +50,17 @@ export default function PaymentPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Payment Data: ", formData);
-    alert("Payment Successful!");
+
+    // Generate the PDF receipt
+    const doc = new jsPDF();
+    doc.text("Payment Receipt", 20, 10);
+    doc.text(`Name: ${formData.name}`, 20, 20);
+    doc.text(`Address: ${formData.address}, ${formData.city}, ${formData.state}`, 20, 30);
+    doc.text(`Order Confirmation: Your order will be delivered within 5-7 business days.`, 20, 40);
+    doc.save("payment-receipt.pdf");
+
+    // Redirect to order confirmation page after payment
+    router.push("/order-confirmation");
   };
 
   const handleGooglePay = () => {
