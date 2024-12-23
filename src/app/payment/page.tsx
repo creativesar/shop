@@ -1,12 +1,11 @@
-"use client"; 
+"use client";
 
 import React, { useState } from "react";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/navigation";
 import { FaCcVisa, FaCcMastercard } from "react-icons/fa";
-import { PDFDocument, rgb } from "pdf-lib"; 
 
 export default function PaymentPage() {
-  const router = useRouter(); 
+  const router = useRouter();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -47,61 +46,13 @@ export default function PaymentPage() {
     }
   };
 
-  const generatePDFReceipt = async () => {
-    const pdfDoc = await PDFDocument.create();
-    const page = pdfDoc.addPage([600, 400]);
-
-    page.drawText("Payment Receipt", {
-      x: 50,
-      y: 350,
-      size: 20,
-      color: rgb(0, 0, 0),
-    });
-
-    page.drawText(`Name: ${formData.name}`, {
-      x: 50,
-      y: 320,
-      size: 12,
-      color: rgb(0, 0, 0),
-    });
-
-    page.drawText(
-      `Address: ${formData.address}, ${formData.city}, ${formData.state} - ${formData.zipCode}`,
-      {
-        x: 50,
-        y: 300,
-        size: 12,
-        color: rgb(0, 0, 0),
-      }
-    );
-
-    page.drawText(
-      `Order Confirmation: Your order will be delivered within 5-7 business days.`,
-      {
-        x: 50,
-        y: 280,
-        size: 12,
-        color: rgb(0, 0, 0),
-      }
-    );
-
-    const pdfBytes = await pdfDoc.save();
-
-    // Create a Blob for download
-    const blob = new Blob([pdfBytes], { type: "application/pdf" });
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = "payment-receipt.pdf";
-    link.click();
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Generate the PDF receipt
-    await generatePDFReceipt();
+    // Show confirmation message (mock)
+    alert("Payment submitted successfully!");
 
-    // Redirect to order confirmation page after payment
+    // Redirect to order confirmation page
     router.push("/order-confirmation");
   };
 
