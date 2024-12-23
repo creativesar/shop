@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
@@ -10,11 +10,15 @@ type ReceiptDetails = {
   date: string;
 };
 
-type OrderConfirmationProps = {
-  receipt: ReceiptDetails;
-};
+export default function OrderConfirmation() {
+  // Hardcoded receipt details (replace with dynamic data if needed)
+  const receipt: ReceiptDetails = {
+    orderId: "ORD-987654",
+    paymentMethod: "Visa **** 1234",
+    amount: "$120.00",
+    date: "2024-12-23",
+  };
 
-export default function OrderConfirmation({ receipt }: OrderConfirmationProps) {
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-gray-100 to-gray-200">
       <div className="bg-white p-8 rounded-lg shadow-lg text-center w-full max-w-lg">
@@ -68,13 +72,3 @@ export default function OrderConfirmation({ receipt }: OrderConfirmationProps) {
     </div>
   );
 }
-
-// Example usage with hardcoded receipt details
-OrderConfirmation.defaultProps = {
-  receipt: {
-    orderId: "ORD-987654",
-    paymentMethod: "Visa **** 1234",
-    amount: "$120.00",
-    date: "2024-12-23",
-  },
-};
