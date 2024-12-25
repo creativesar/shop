@@ -80,6 +80,19 @@ const Header = ({ data }: { data: Product }) => {
             This graphic t-shirt which is perfect for any occasion. Crafted from
             a soft and breathable fabric, it offers superior comfort and style.
           </p>
+
+          {/* Stock Information */}
+          <div className="mb-5">
+            <p className="text-sm sm:text-base text-black/60">
+              <strong>Stock: </strong>
+              {data.stock > 0 ? (
+                <span className="text-green-500">In Stock ({data.stock} available)</span>
+              ) : (
+                <span className="text-red-500">Out of Stock</span>
+              )}
+            </p>
+          </div>
+
           <hr className="h-[1px] border-t-black/10 mb-5" />
           <ColorSelection />
           <hr className="h-[1px] border-t-black/10 my-5" />

@@ -19,6 +19,7 @@ export const newArrivalsData: Product[] = [
       percentage: 0,
     },
     rating: 4.5,
+    stock: 50, // Added stock
   },
   {
     id: 2,
@@ -31,6 +32,7 @@ export const newArrivalsData: Product[] = [
       percentage: 20,
     },
     rating: 3.5,
+    stock: 30, // Added stock
   },
   {
     id: 3,
@@ -43,6 +45,7 @@ export const newArrivalsData: Product[] = [
       percentage: 0,
     },
     rating: 4.5,
+    stock: 20, // Added stock
   },
   {
     id: 4,
@@ -55,6 +58,7 @@ export const newArrivalsData: Product[] = [
       percentage: 30,
     },
     rating: 4.5,
+    stock: 100, // Added stock
   },
 ];
 
@@ -70,6 +74,7 @@ export const topSellingData: Product[] = [
       percentage: 20,
     },
     rating: 5.0,
+    stock: 50, // Added stock
   },
   {
     id: 6,
@@ -82,6 +87,7 @@ export const topSellingData: Product[] = [
       percentage: 0,
     },
     rating: 4.0,
+    stock: 40, // Added stock
   },
   {
     id: 7,
@@ -94,6 +100,7 @@ export const topSellingData: Product[] = [
       percentage: 0,
     },
     rating: 3.0,
+    stock: 60, // Added stock
   },
   {
     id: 8,
@@ -106,6 +113,7 @@ export const topSellingData: Product[] = [
       percentage: 0,
     },
     rating: 4.5,
+    stock: 20, // Added stock
   },
 ];
 
@@ -121,6 +129,7 @@ export const relatedProductData: Product[] = [
       percentage: 20,
     },
     rating: 4.0,
+    stock: 80, // Added stock
   },
   {
     id: 13,
@@ -133,6 +142,7 @@ export const relatedProductData: Product[] = [
       percentage: 0,
     },
     rating: 3.5,
+    stock: 70, // Added stock
   },
   {
     id: 14,
@@ -145,6 +155,7 @@ export const relatedProductData: Product[] = [
       percentage: 0,
     },
     rating: 4.5,
+    stock: 50, // Added stock
   },
   {
     id: 15,
@@ -157,6 +168,7 @@ export const relatedProductData: Product[] = [
       percentage: 30,
     },
     rating: 5.0,
+    stock: 40, // Added stock
   },
   {
     id: 16,
@@ -169,6 +181,7 @@ export const relatedProductData: Product[] = [
       percentage: 40,
     },
     rating: 4.5,
+    stock: 60, // Added stock
   },
 ];
 
