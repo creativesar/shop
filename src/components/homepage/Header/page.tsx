@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { integralCF } from "@/styles/fonts";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const Header = () => {
   // Split heading text into individual letters
@@ -149,7 +150,7 @@ const Header = () => {
               repeat: 0, // Runs once
             }}
           >
-            <img
+            <Image
               src="/images/model.png"
               alt="Model"
               className="w-full max-w-[300px] mx-auto"

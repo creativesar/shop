@@ -22,11 +22,11 @@ const specsData: SpecItem[] = [
     label: "Pattern",
     value: "Solid",
   },
-  Optionally, you can add the stock here
-  {
-    label: "Stock",
-    value: "10 available", // or use a dynamic value passed from the parent
-  },
+  // Optionally, you can add the stock here
+  // {
+  //   label: "Stock",
+  //   value: "10 available", // or use a dynamic value passed from the parent
+  // },
 ];
 
 type ProductDetailsProps = {
