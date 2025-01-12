@@ -154,6 +154,8 @@ const Header = () => {
               src="/images/model.png"
               alt="Model"
               className="w-full max-w-[300px] mx-auto"
+              width={300}
+              height={300}
             />
           </motion.div>
         </motion.section>

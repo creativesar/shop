@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from "react";
 import BreadcrumbShop from "@/components/shop-page/BreadcrumbShop";
 
 import {
@@ -15,14 +18,39 @@ import ProductCard from "@/components/common/ProductCard";
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
 
+const PRODUCTS_PER_PAGE = 9;
+const TOTAL_PAGES = 10;
+
 export default function ShopPage() {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // Combine all products
+  const allProducts = [
+    ...relatedProductData.slice(1, 5),
+    ...newArrivalsData.slice(1, 4),
+    ...topSellingData.slice(1, 4),
+  ];
+
+  
+  const limitedProducts = allProducts.slice(0, TOTAL_PAGES * PRODUCTS_PER_PAGE);
+
+ 
+  const currentProducts = limitedProducts.slice(
+    (currentPage - 1) * PRODUCTS_PER_PAGE,
+    currentPage * PRODUCTS_PER_PAGE
+  );
+
+ 
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
   return (
     <main className="pb-20">
       <div className="max-w-frame mx-auto px-4 xl:px-0">
@@ -44,7 +72,9 @@ export default function ShopPage() {
               </div>
               <div className="flex flex-col sm:items-center sm:flex-row">
                 <span className="text-sm md:text-base text-black/60 mr-3">
-                  Showing 1-10 of 100 Products
+                  Showing {PRODUCTS_PER_PAGE * (currentPage - 1) + 1}-
+                  {Math.min(currentPage * PRODUCTS_PER_PAGE, limitedProducts.length)}{" "}
+                  of {limitedProducts.length} Products
                 </span>
                 <div className="flex items-center">
                   Sort by:{" "}
@@ -62,73 +92,42 @@ export default function ShopPage() {
               </div>
             </div>
             <div className="w-full grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
-              {[
-                ...relatedProductData.slice(1, 5),
-                ...newArrivalsData.slice(1, 4),
-                ...topSellingData.slice(1, 4),
-              ].map((product) => (
+              {currentProducts.map((product) => (
                 <ProductCard key={product.id} data={product} />
               ))}
             </div>
             <hr className="border-t-black/10" />
             <Pagination className="justify-between">
-              <PaginationPrevious href="#" className="border border-black/10" />
+              <div className="flex items-center space-x-4">
+                <PaginationPrevious
+                  href="#"
+                  className="border border-black/10"
+                  onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
+                />
+                <span className="text-sm text-black/60">
+                  Page {currentPage} of {TOTAL_PAGES}
+                </span>
+              </div>
               <PaginationContent>
-                <PaginationItem>
-                  <PaginationLink
-                    href="#"
-                    className="text-black/50 font-medium text-sm"
-                    isActive
-                  >
-                    1
-                  </PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink
-                    href="#"
-                    className="text-black/50 font-medium text-sm"
-                  >
-                    2
-                  </PaginationLink>
-                </PaginationItem>
-                <PaginationItem className="hidden lg:block">
-                  <PaginationLink
-                    href="#"
-                    className="text-black/50 font-medium text-sm"
-                  >
-                    3
-                  </PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationEllipsis className="text-black/50 font-medium text-sm" />
-                </PaginationItem>
-                <PaginationItem className="hidden lg:block">
-                  <PaginationLink
-                    href="#"
-                    className="text-black/50 font-medium text-sm"
-                  >
-                    8
-                  </PaginationLink>
-                </PaginationItem>
-                <PaginationItem className="hidden sm:block">
-                  <PaginationLink
-                    href="#"
-                    className="text-black/50 font-medium text-sm"
-                  >
-                    9
-                  </PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink
-                    href="#"
-                    className="text-black/50 font-medium text-sm"
-                  >
-                    10
-                  </PaginationLink>
-                </PaginationItem>
+                {[...Array(TOTAL_PAGES)].map((_, index) => (
+                  <PaginationItem key={index}>
+                    <PaginationLink
+                      href="#"
+                      className={`text-black/50 font-medium text-sm ${
+                        currentPage === index + 1 ? "font-bold" : ""
+                      }`}
+                      onClick={() => handlePageChange(index + 1)}
+                    >
+                      {index + 1}
+                    </PaginationLink>
+                  </PaginationItem>
+                ))}
               </PaginationContent>
-
-              <PaginationNext href="#" className="border border-black/10" />
+              <PaginationNext
+                href="#"
+                className="border border-black/10"
+                onClick={() => handlePageChange(Math.min(TOTAL_PAGES, currentPage + 1))}
+              />
             </Pagination>
           </div>
         </div>
