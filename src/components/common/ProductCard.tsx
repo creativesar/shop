@@ -12,19 +12,21 @@ const ProductCard = ({ data }: ProductCardProps) => {
   return (
     <Link
       href={`/shop/product/${data.id}/${data.title.split(" ").join("-")}`}
-      className="flex flex-col items-start aspect-auto"
+      className="flex flex-col items-start aspect-auto group transition-transform transform hover:scale-102 duration-300"
     >
       <div className="bg-[#F0EEED] rounded-[13px] lg:rounded-[20px] w-full lg:max-w-[295px] aspect-square mb-2.5 xl:mb-4 overflow-hidden">
         <Image
           src={data.srcUrl}
           width={295}
           height={298}
-          className="rounded-md w-full h-full object-contain hover:scale-110 transition-all duration-500"
+          className="rounded-md w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
           alt={data.title}
           priority
         />
       </div>
-      <strong className="text-black xl:text-xl">{data.title}</strong>
+      <strong className="text-black xl:text-xl group-hover:text-[#FF3333] transition-colors duration-300">
+        {data.title}
+      </strong>
       <div className="flex items-end mb-1 xl:mb-2">
         <Rating
           initialValue={data.rating}
@@ -66,12 +68,12 @@ const ProductCard = ({ data }: ProductCardProps) => {
           </span>
         )}
         {data.discount.percentage > 0 ? (
-          <span className="font-medium text-[10px] xl:text-xs py-1.5 px-3.5 rounded-full bg-[#FF3333]/10 text-[#FF3333]">
+          <span className="font-medium text-[10px] xl:text-xs py-1.5 px-3.5 rounded-full bg-[#FF3333]/10 text-[#FF3333] group-hover:bg-[#FF3333] group-hover:text-white transition-all duration-300">
             {`-${data.discount.percentage}%`}
           </span>
         ) : (
           data.discount.amount > 0 && (
-            <span className="font-medium text-[10px] xl:text-xs py-1.5 px-3.5 rounded-full bg-[#FF3333]/10 text-[#FF3333]">
+            <span className="font-medium text-[10px] xl:text-xs py-1.5 px-3.5 rounded-full bg-[#FF3333]/10 text-[#FF3333] group-hover:bg-[#FF3333] group-hover:text-white transition-all duration-300">
               {`-$${data.discount.amount}`}
             </span>
           )
