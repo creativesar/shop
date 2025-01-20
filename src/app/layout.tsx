@@ -6,6 +6,7 @@ import TopNavbar from "@/components/layout/Navbar/TopNavbar/page";
 import Footer from "@/components/layout/Footer/page";
 import HolyLoader from "holy-loader";
 import Providers from "./providers";
+import { FilterProvider } from '@/components/shop-page/filters/FilterContext';
 
 
 
@@ -29,10 +30,12 @@ export default function RootLayout({
         <body className={satoshi.className}>
           <HolyLoader color="#868686" />
           <TopBanner />
-          <Providers>
-            <TopNavbar />
-            {children}
-          </Providers>
+          <FilterProvider>
+            <Providers>
+              <TopNavbar />
+              {children}
+            </Providers>
+          </FilterProvider>
           <Footer />
         </body>
       </html>

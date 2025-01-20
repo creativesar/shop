@@ -25,7 +25,7 @@ export type RemoveCartItem = {
 export type CartItem = {
   id: number;
   name: string;
-  srcUrl: string;
+  image: string;
   price: number;
   attributes: string[];
   discount: Discount;

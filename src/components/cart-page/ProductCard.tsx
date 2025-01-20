@@ -28,7 +28,7 @@ const ProductCard = ({ data }: ProductCardProps) => {
         className="bg-[#F0EEED] rounded-lg w-full min-w-[100px] max-w-[100px] sm:max-w-[124px] aspect-square overflow-hidden"
       >
         <Image
-          src={data.srcUrl}
+          src={data.image}
           width={124}
           height={124}
           className="rounded-md w-full h-full object-cover hover:scale-110 transition-all duration-500"

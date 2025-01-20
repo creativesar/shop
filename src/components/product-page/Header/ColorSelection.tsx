@@ -12,16 +12,20 @@ import { IoMdCheckmark } from "react-icons/io";
 
 const colorsData: Color[] = [
   {
-    name: "Brown",
-    code: "bg-[#4F4631]",
+    name: "Black",
+    code: "bg-black",
   },
   {
-    name: "Green",
-    code: "bg-[#314F4A]",
+    name: "Red",
+    code: "bg-red-600",
   },
   {
     name: "Blue",
-    code: "bg-[#31344F]",
+    code: "bg-blue-600",
+  },
+  {
+    name: "White",
+    code: "bg-white border border-gray-200",
   },
 ];
 
