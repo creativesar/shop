@@ -28,7 +28,11 @@ const socialsData: SocialNetworks[] = [
   {
     id: 4,
     icon: <FaGithub />,
+<<<<<<< HEAD
     url: "https://github.com/mohammadoftadeh",
+=======
+    url: "https://github.com/creativesar",
+>>>>>>> 80db49b (done)
   },
 ];
 
