@@ -3,10 +3,7 @@ import PhotoSection from "./PhotoSection";
 import { Product } from "@/types/product.types";
 import { integralCF } from "@/styles/fonts";
 import { cn } from "@/lib/utils";
-<<<<<<< HEAD
-=======
 import Rating from "@/components/ui/Rating";
->>>>>>> 80db49b (done)
 import ColorSelection from "./ColorSelection";
 import SizeSelection from "./SizeSelection";
 import AddToCardSection from "./AddToCardSection";
@@ -25,18 +22,6 @@ const Header = ({ data }: { data: Product }) => {
               "text-2xl md:text-[40px] md:leading-[40px] mb-3 md:mb-3.5 capitalize",
             ])}
           >
-<<<<<<< HEAD
-            {data.name}
-          </h1>
-          <div className="flex items-center mb-3 sm:mb-3.5">
-            <p className="text-xl sm:text-2xl font-semibold">
-              ${data.price - (data.price * (data.discountPercent || 0)) / 100}
-            </p>
-            {(data.discountPercent || 0) > 0 && (
-              <p className="text-neutral-400 line-through text-lg sm:text-xl ml-2">
-                ${data.price}
-              </p>
-=======
             {data.title}
           </h1>
           <div className="flex items-center mb-3 sm:mb-3.5">
@@ -89,26 +74,12 @@ const Header = ({ data }: { data: Product }) => {
                   {`-$${data.discount.amount}`}
                 </span>
               )
->>>>>>> 80db49b (done)
             )}
           </div>
           <p className="text-sm sm:text-base text-black/60 mb-5">
             This graphic t-shirt which is perfect for any occasion. Crafted from
             a soft and breathable fabric, it offers superior comfort and style.
           </p>
-
-          {/* Stock Information */}
-          <div className="mb-5">
-            <p className="text-sm sm:text-base text-black/60">
-              <strong>Stock: </strong>
-              {data.stock > 0 ? (
-                <span className="text-green-500">In Stock ({data.stock} available)</span>
-              ) : (
-                <span className="text-red-500">Out of Stock</span>
-              )}
-            </p>
-          </div>
-
           <hr className="h-[1px] border-t-black/10 mb-5" />
           <ColorSelection />
           <hr className="h-[1px] border-t-black/10 my-5" />
