@@ -41,6 +41,9 @@ const Input = React.forwardRef<HTMLInputElement, InputTextProps>(
   }
 );
 
+// Add this line to set the display name
+Input.displayName = "Input";
+
 const InputGroupText = ({ className, children }: InputGroupProps) => {
   return (
     <div className={cn("input-group-text mr-3", className ?? "")}>
