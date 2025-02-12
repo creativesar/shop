@@ -4,6 +4,7 @@ export type Discount = {
 };
 
 export type Product = {
+  reviews: ReactNode;
   id: number;
   title: string;
   srcUrl: string;
