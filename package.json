@@ -32,22 +32,13 @@
     "clsx": "^2.1.1",
     "dotenv": "^16.4.7",
     "embla-carousel-react": "^8.5.1",
-<<<<<<< HEAD
     "framer-motion": "^11.17.0",
-=======
-    "framer-motion": "^11.14.4",
->>>>>>> 80db49b (done)
     "gsap": "^3.12.5",
     "holy-loader": "^2.3.11",
     "lucide-react": "^0.468.0",
     "next": "^14.2.20",
     "next-auth": "^4.24.11",
-<<<<<<< HEAD
     "next-sanity": "^9.8.37",
-=======
-    "next-sanity": "^9.8.34",
-    "node-fetch": "^3.3.2",
->>>>>>> 80db49b (done)
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.54.2",
@@ -56,11 +47,7 @@
     "react-redux": "^9.2.0",
     "react-simple-star-rating": "^5.1.7",
     "redux-persist": "^6.0.0",
-<<<<<<< HEAD
     "sanity": "^3.70.0",
-=======
-    "sanity": "^3.69.0",
->>>>>>> 80db49b (done)
     "split-type": "^0.3.4",
     "stripe": "^17.5.0",
     "styled-components": "^6.1.14",
