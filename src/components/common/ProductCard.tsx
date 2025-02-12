@@ -1,8 +1,5 @@
 import React from "react";
-<<<<<<< HEAD
-=======
 import Rating from "../ui/Rating";
->>>>>>> 80db49b (done)
 import Image from "next/image";
 import Link from "next/link";
 import { Product } from "@/types/product.types";
@@ -12,113 +9,72 @@ type ProductCardProps = {
 };
 
 const ProductCard = ({ data }: ProductCardProps) => {
+  const formattedTitle = data.title.split(" ").join("-");
+  const discountedPrice =
+    data.discount.percentage > 0
+      ? Math.round(data.price - (data.price * data.discount.percentage) / 100)
+      : data.discount.amount > 0
+      ? data.price - data.discount.amount
+      : data.price;
+
   return (
     <Link
-<<<<<<< HEAD
-      href={`/shop/product/${data.id}/${data.name.split(" ").join("-")}`}
-=======
-      href={`/shop/product/${data.id}/${data.title.split(" ").join("-")}`}
->>>>>>> 80db49b (done)
-      className="flex flex-col items-start aspect-auto group transition-transform transform hover:scale-102 duration-300"
+      href={`/shop/product/${data.id}/${formattedTitle}`}
+      className="group flex flex-col items-start transition-all duration-300"
     >
-      <div className="bg-[#F0EEED] rounded-[13px] lg:rounded-[20px] w-full lg:max-w-[295px] aspect-square mb-2.5 xl:mb-4 overflow-hidden">
+      {/* Product Image */}
+      <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-gray-100">
         <Image
-<<<<<<< HEAD
-          src={data.image}
-          width={295}
-          height={298}
-          className="rounded-md w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-          alt={data.name}
-          priority
-        />
-      </div>
-      <strong className="text-sm sm:text-base font-bold font-sora line-clamp-1">
-        {data.name}
-      </strong>
-      {data.description && (
-        <p className="text-sm text-gray-600 mb-1 xl:mb-2 line-clamp-2">
-          {data.description}
-        </p>
-      )}
-      <div className="flex items-end mb-1 xl:mb-2">
-        <p className="text-lg sm:text-xl font-bold font-sora">
-          ${data.price - (data.price * (data.discountPercent ?? 0)) / 100}
-        </p>
-        {data.discountPercent && data.discountPercent > 0 && (
-          <p className="text-neutral-400 line-through text-sm ml-2">
-            ${data.price}
-          </p>
-        )}
-      </div>
-      <div className="flex items-center space-x-[5px] xl:space-x-2.5">
-        {data.discountPercent && data.discountPercent > 0 && (
-          <span className="font-medium text-[10px] xl:text-xs py-1.5 px-3.5 rounded-full bg-[#FF3333]/10 text-[#FF3333] group-hover:bg-[#FF3333] group-hover:text-white transition-all duration-300">
-            {`-${data.discountPercent}%`}
-          </span>
-=======
           src={data.srcUrl}
-          width={295}
-          height={298}
-          className="rounded-md w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+          width={300}
+          height={300}
           alt={data.title}
+          className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
           priority
         />
+        {/* Hover Overlay */}
+        <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
       </div>
-      <strong className="text-black xl:text-xl group-hover:text-[#FF3333] transition-colors duration-300">
+
+      {/* Product Title */}
+      <strong className="mt-3 text-lg font-semibold text-gray-900 group-hover:text-black transition-colors duration-300">
         {data.title}
       </strong>
-      <div className="flex items-end mb-1 xl:mb-2">
+
+      {/* Rating Section */}
+      <div className="flex items-center gap-2 mt-1">
         <Rating
           initialValue={data.rating}
           allowFraction
           SVGclassName="inline-block"
           emptyClassName="fill-gray-50"
-          size={19}
+          size={18}
           readonly
         />
-        <span className="text-black text-xs xl:text-sm ml-[11px] xl:ml-[13px] pb-0.5 xl:pb-0">
-          {data.rating.toFixed(1)}
-          <span className="text-black/60">/5</span>
+        <span className="text-sm text-gray-700">
+          {data.rating.toFixed(1)} <span className="text-gray-500">/5</span>
         </span>
       </div>
-      <div className="flex items-center space-x-[5px] xl:space-x-2.5">
+
+      {/* Price & Discount */}
+      <div className="flex items-center gap-2 mt-2">
+        <span className="text-xl font-bold text-gray-900">${discountedPrice}</span>
+
+        {/* Original Price (if discounted) */}
+        {data.discount.percentage > 0 || data.discount.amount > 0 ? (
+          <span className="text-lg font-medium text-gray-400 line-through">${data.price}</span>
+        ) : null}
+
+        {/* Discount Badge */}
         {data.discount.percentage > 0 ? (
-          <span className="font-bold text-black text-xl xl:text-2xl">
-            {`$${Math.round(
-              data.price - (data.price * data.discount.percentage) / 100
-            )}`}
+          <span className="px-3 py-1 text-xs font-medium text-red-600 bg-red-100 rounded-full">
+            -{data.discount.percentage}%
           </span>
         ) : data.discount.amount > 0 ? (
-          <span className="font-bold text-black text-xl xl:text-2xl">
-            {`$${data.price - data.discount.amount}`}
+          <span className="px-3 py-1 text-xs font-medium text-red-600 bg-red-100 rounded-full">
+            -${data.discount.amount}
           </span>
-        ) : (
-          <span className="font-bold text-black text-xl xl:text-2xl">
-            ${data.price}
-          </span>
-        )}
-        {data.discount.percentage > 0 && (
-          <span className="font-bold text-black/40 line-through text-xl xl:text-2xl">
-            ${data.price}
-          </span>
-        )}
-        {data.discount.amount > 0 && (
-          <span className="font-bold text-black/40 line-through text-xl xl:text-2xl">
-            ${data.price}
-          </span>
-        )}
-        {data.discount.percentage > 0 ? (
-          <span className="font-medium text-[10px] xl:text-xs py-1.5 px-3.5 rounded-full bg-[#FF3333]/10 text-[#FF3333] group-hover:bg-[#FF3333] group-hover:text-white transition-all duration-300">
-            {`-${data.discount.percentage}%`}
-          </span>
-        ) : (
-          data.discount.amount > 0 && (
-            <span className="font-medium text-[10px] xl:text-xs py-1.5 px-3.5 rounded-full bg-[#FF3333]/10 text-[#FF3333] group-hover:bg-[#FF3333] group-hover:text-white transition-all duration-300">
-              {`-$${data.discount.amount}`}
-            </span>
-          )
->>>>>>> 80db49b (done)
-        )}
+        ) : null}
       </div>
     </Link>
   );

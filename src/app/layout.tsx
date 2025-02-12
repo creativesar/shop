@@ -6,12 +6,6 @@ import TopNavbar from "@/components/layout/Navbar/TopNavbar/page";
 import Footer from "@/components/layout/Footer/page";
 import HolyLoader from "holy-loader";
 import Providers from "./providers";
-<<<<<<< HEAD
-import { FilterProvider } from '@/components/shop-page/filters/FilterContext';
-=======
->>>>>>> 80db49b (done)
-
-
 
 export const metadata: Metadata = {
   title: "Shopco",
@@ -28,27 +22,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-   
-      <html lang="en">
-        <body className={satoshi.className}>
-          <HolyLoader color="#868686" />
-          <TopBanner />
-<<<<<<< HEAD
-          <FilterProvider>
-            <Providers>
-              <TopNavbar />
-              {children}
-            </Providers>
-          </FilterProvider>
-=======
-          <Providers>
-            <TopNavbar />
-            {children}
-          </Providers>
->>>>>>> 80db49b (done)
-          <Footer />
-        </body>
-      </html>
-   
+    <html lang="en">
+      <body className={satoshi.className}>
+        <HolyLoader color="#868686" />
+        <TopBanner />
+        <Providers>
+          <TopNavbar />
+          {children}
+        </Providers>
+        <Footer />
+      </body>
+    </html>
   );
 }

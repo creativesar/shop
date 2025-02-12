@@ -25,11 +25,7 @@ export type RemoveCartItem = {
 export type CartItem = {
   id: number;
   name: string;
-<<<<<<< HEAD
-  image: string;
-=======
   srcUrl: string;
->>>>>>> 80db49b (done)
   price: number;
   attributes: string[];
   discount: Discount;

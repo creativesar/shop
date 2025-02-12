@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-'use client'
-
-=======
->>>>>>> 80db49b (done)
 import { cn } from "@/lib/utils";
 import { integralCF } from "@/styles/fonts";
 import Link from "next/link";
@@ -18,10 +13,6 @@ import Image from "next/image";
 import InputGroup from "@/components/ui/input-group";
 import ResTopNavbar from "./ResTopNavbar";
 import CartBtn from "./CartBtn";
-<<<<<<< HEAD
-import { useRouter } from "next/navigation";
-=======
->>>>>>> 80db49b (done)
 
 const data: NavMenu = [
   {
@@ -66,36 +57,19 @@ const data: NavMenu = [
     id: 3,
     type: "MenuItem",
     label: "New Arrivals",
-    url: "/#new-arrivals",
+    url: "/shop#new-arrivals",
     children: [],
   },
   {
     id: 4,
     type: "MenuItem",
     label: "Brands",
-    url: "/#top-selling",
+    url: "/shop#brands",
     children: [],
   },
 ];
 
 const TopNavbar = () => {
-<<<<<<< HEAD
-  const router = useRouter();
-
-  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const searchQuery = formData.get('search')?.toString() || '';
-    router.push(`/shop?search=${encodeURIComponent(searchQuery)}`);
-  };
-
-  const handleMobileSearchClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    router.push('/shop?search=');
-  };
-
-=======
->>>>>>> 80db49b (done)
   return (
     <nav className="sticky top-0 bg-white z-20">
       <div className="flex relative max-w-frame mx-auto items-center justify-between md:justify-start py-5 md:py-6 px-4 xl:px-0">
@@ -128,33 +102,6 @@ const TopNavbar = () => {
           </NavigationMenuList>
         </NavigationMenu>
         <InputGroup className="hidden md:flex bg-[#F0F0F0] mr-3 lg:mr-10">
-<<<<<<< HEAD
-          <form onSubmit={handleSearch} className="contents">
-            <InputGroup.Text>
-              <Image
-                priority
-                src="/icons/search.svg"
-                height={20}
-                width={20}
-                alt="search"
-                className="min-w-5 min-h-5"
-              />
-            </InputGroup.Text>
-            <InputGroup.Input
-              type="search"
-              name="search"
-              placeholder="Search for products..."
-              className="bg-transparent placeholder:text-black/40"
-            />
-          </form>
-        </InputGroup>
-        <div className="flex items-center">
-          <Link 
-            href="/shop" 
-            onClick={handleMobileSearchClick}
-            className="block md:hidden mr-[14px] p-1"
-          >
-=======
           <InputGroup.Text>
             <Image
               priority
@@ -164,7 +111,6 @@ const TopNavbar = () => {
               alt="search"
               className="min-w-5 min-h-5"
             />
-          
           </InputGroup.Text>
           <InputGroup.Input
             type="search"
@@ -175,7 +121,6 @@ const TopNavbar = () => {
         </InputGroup>
         <div className="flex items-center">
           <Link href="/search" className="block md:hidden mr-[14px] p-1">
->>>>>>> 80db49b (done)
             <Image
               priority
               src="/icons/search-black.svg"
@@ -186,7 +131,7 @@ const TopNavbar = () => {
             />
           </Link>
           <CartBtn />
-          <Link href="/sign-in" className="p-1">
+          <Link href="/#signin" className="p-1">
             <Image
               priority
               src="/icons/user.svg"

@@ -17,15 +17,9 @@ import { useIsClient, useMediaQuery } from "usehooks-ts";
 import ReviewCard from "@/components/common/ReviewCard";
 import { Review } from "@/types/review.types";
 
-<<<<<<< HEAD
-type ReviewsProps = { reviewsData: Review[] };
-
-const Reviews = ({ reviewsData }: ReviewsProps) => {
-=======
 type ReviewsProps = { data: Review[] };
 
 const Reviews = ({ data }: ReviewsProps) => {
->>>>>>> 80db49b (done)
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
   const [count, setCount] = React.useState(0);
@@ -86,11 +80,7 @@ const Reviews = ({ data }: ReviewsProps) => {
             </div>
           </div>
           <CarouselContent>
-<<<<<<< HEAD
-            {reviewsData.map((review, index) => (
-=======
             {data.map((review, index) => (
->>>>>>> 80db49b (done)
               <CarouselItem
                 key={review.id}
                 className="w-full max-w-[358px] sm:max-w-[400px] pl-5"
@@ -99,11 +89,7 @@ const Reviews = ({ data }: ReviewsProps) => {
                   className="h-full"
                   data={review}
                   blurChild={
-<<<<<<< HEAD
-                    reviewsData.length >= 6 && (
-=======
                     data.length >= 6 && (
->>>>>>> 80db49b (done)
                       <div
                         className={cn([
                           isDesktop
@@ -113,10 +99,6 @@ const Reviews = ({ data }: ReviewsProps) => {
                                 ? 1
                                 : current + 1) === index &&
                               "backdrop-blur-[2px]"
-<<<<<<< HEAD
-                            : "",
-                          "absolute inset-0 bg-white/30 transition-all duration-300",
-=======
                             : (current === count ? 0 : current) === index &&
                               "backdrop-blur-[2px]",
                           isDesktop
@@ -133,7 +115,6 @@ const Reviews = ({ data }: ReviewsProps) => {
                                 : current - 2) === index &&
                               "backdrop-blur-[2px]",
                           "absolute bg-white/10 right-0 top-0 h-full w-full z-10",
->>>>>>> 80db49b (done)
                         ])}
                       />
                     )

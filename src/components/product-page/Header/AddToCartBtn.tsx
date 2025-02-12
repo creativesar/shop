@@ -20,13 +20,8 @@ const AddToCartBtn = ({ data }: { data: Product & { quantity: number } }) => {
         dispatch(
           addToCart({
             id: data.id,
-<<<<<<< HEAD
-            name: data.name,
-            image: data.image,
-=======
             name: data.title,
             srcUrl: data.srcUrl,
->>>>>>> 80db49b (done)
             price: data.price,
             attributes: [sizeSelection, colorSelection.name],
             discount: data.discount,

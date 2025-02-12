@@ -7,7 +7,7 @@ export type SpecItem = {
 
 const specsData: SpecItem[] = [
   {
-    label: "Material composition",
+    label: " Material composition",
     value: "100% Cotton",
   },
   {
@@ -22,18 +22,9 @@ const specsData: SpecItem[] = [
     label: "Pattern",
     value: "Solid",
   },
-  // Optionally, you can add the stock here
-  // {
-  //   label: "Stock",
-  //   value: "10 available", // or use a dynamic value passed from the parent
-  // },
 ];
 
-type ProductDetailsProps = {
-  stock: number;
-};
-
-const ProductDetails = ({ stock }: ProductDetailsProps) => {
+const ProductDetails = () => {
   return (
     <>
       {specsData.map((item, i) => (
@@ -50,20 +41,6 @@ const ProductDetails = ({ stock }: ProductDetailsProps) => {
           </div>
         </div>
       ))}
-
-      {/* Add stock information */}
-      <div className="grid grid-cols-3">
-        <div>
-          <p className="text-sm py-3 w-full leading-7 lg:py-4 pr-2 text-neutral-500">
-            Stock
-          </p>
-        </div>
-        <div className="col-span-2 py-3 lg:py-4 border-b">
-          <p className="text-sm w-full leading-7 text-neutral-800 font-medium">
-            {stock > 0 ? `${stock} available` : "Out of stock"}
-          </p>
-        </div>
-      </div>
     </>
   );
 };

@@ -5,11 +5,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 
 const PhotoSection = ({ data }: { data: Product }) => {
-<<<<<<< HEAD
-  const [selected, setSelected] = useState<string>(data.image);
-=======
   const [selected, setSelected] = useState<string>(data.srcUrl);
->>>>>>> 80db49b (done)
 
   return (
     <div className="flex flex-col-reverse lg:flex-row lg:space-x-3.5">
@@ -27,11 +23,7 @@ const PhotoSection = ({ data }: { data: Product }) => {
                 width={152}
                 height={167}
                 className="rounded-md w-full h-full object-cover hover:scale-110 transition-all duration-500"
-<<<<<<< HEAD
-                alt={data.name}
-=======
                 alt={data.title}
->>>>>>> 80db49b (done)
                 priority
               />
             </button>
@@ -45,11 +37,7 @@ const PhotoSection = ({ data }: { data: Product }) => {
           width={444}
           height={530}
           className="rounded-md w-full h-full object-cover hover:scale-110 transition-all duration-500"
-<<<<<<< HEAD
-          alt={data.name}
-=======
           alt={data.title}
->>>>>>> 80db49b (done)
           priority
           unoptimized
         />

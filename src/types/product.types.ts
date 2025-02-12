@@ -4,18 +4,6 @@ export type Discount = {
 };
 
 export type Product = {
-<<<<<<< HEAD
-  id: string;
-  discountPercent?: number;
-  category?: string;
-  price: number;
-  sizes: string[];
-  image: string;
-  gallery?: string[];
-  description: string;
-  name: string;
-  title?: string;
-=======
   id: number;
   title: string;
   srcUrl: string;
@@ -23,6 +11,4 @@ export type Product = {
   price: number;
   discount: Discount;
   rating: number;
->>>>>>> 80db49b (done)
-  stock: number;
 };

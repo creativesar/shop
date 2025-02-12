@@ -3,7 +3,7 @@ import React, { InputHTMLAttributes } from "react";
 
 type InputGroupProps = {
   className?: string;
-  children?: React.ReactNode; // Made children optional for flexibility
+  children: React.ReactNode;
 };
 
 type InputTextProps = InputHTMLAttributes<HTMLInputElement>;
@@ -22,7 +22,7 @@ const InputGroup = ({ className, children }: InputGroupProps) => {
 };
 
 const Input = React.forwardRef<HTMLInputElement, InputTextProps>(
-  (props: InputTextProps, ref: React.Ref<HTMLInputElement>) => {
+  (props: InputTextProps, ref: any) => {
     const { className, ...rest } = props;
 
     return (
@@ -41,8 +41,6 @@ const Input = React.forwardRef<HTMLInputElement, InputTextProps>(
   }
 );
 
-Input.displayName = "InputGroup.Input";
-
 const InputGroupText = ({ className, children }: InputGroupProps) => {
   return (
     <div className={cn("input-group-text mr-3", className ?? "")}>
@@ -50,8 +48,6 @@ const InputGroupText = ({ className, children }: InputGroupProps) => {
     </div>
   );
 };
-
-InputGroupText.displayName = "InputGroup.Text";
 
 InputGroup.Text = InputGroupText;
 InputGroup.Input = Input;
