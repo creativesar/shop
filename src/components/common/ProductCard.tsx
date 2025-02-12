@@ -15,7 +15,6 @@ const ProductCard = ({ data }: ProductCardProps) => {
   const cardRef = useRef(null);
   const imageRef = useRef(null);
   const overlayRef = useRef(null);
-  const discountBadgeRef = useRef(null);
 
   useEffect(() => {
     gsap.fromTo(
@@ -26,13 +25,8 @@ const ProductCard = ({ data }: ProductCardProps) => {
   }, []);
 
   const handleMouseEnter = () => {
-    gsap.to(imageRef.current, { scale: 1.1, duration: 0.5, ease: 'power3.out' });
+    gsap.to(imageRef.current, { scale: 1.05, duration: 0.5, ease: 'power3.out' });
     gsap.to(overlayRef.current, { opacity: 1, duration: 0.5, ease: 'power3.out' });
-    gsap.fromTo(
-      discountBadgeRef.current,
-      { scale: 0, rotate: -20 },
-      { scale: 1, rotate: 0, duration: 0.5, ease: 'elastic.out(1, 0.5)' }
-    );
   };
 
   const handleMouseLeave = () => {
@@ -70,18 +64,8 @@ const ProductCard = ({ data }: ProductCardProps) => {
         />
         <div
           ref={overlayRef}
-          className="absolute inset-0 bg-black/10 opacity-0 transition-all duration-500"
+          className="absolute inset-0 bg-black/5 opacity-0 transition-all duration-500"
         ></div>
-        {data.discount.percentage > 0 || data.discount.amount > 0 ? (
-          <div
-            ref={discountBadgeRef}
-            className="absolute top-3 left-3 bg-red-600 text-white px-3 py-1 text-xs font-medium rounded-full shadow-lg"
-          >
-            {data.discount.percentage > 0
-              ? `-${data.discount.percentage}%`
-              : `-$${data.discount.amount}`}
-          </div>
-        ) : null}
       </div>
 
       <strong className="mt-3 text-lg font-semibold text-gray-900 group-hover:text-black transition-colors duration-300">
@@ -106,6 +90,15 @@ const ProductCard = ({ data }: ProductCardProps) => {
         <span className="text-xl font-bold text-gray-900">${discountedPrice}</span>
         {data.discount.percentage > 0 || data.discount.amount > 0 ? (
           <span className="text-lg font-medium text-gray-400 line-through">${data.price}</span>
+        ) : null}
+        {data.discount.percentage > 0 ? (
+          <span className="px-3 py-1 text-xs font-medium text-red-600 bg-red-100 rounded-full">
+            -{data.discount.percentage}%
+          </span>
+        ) : data.discount.amount > 0 ? (
+          <span className="px-3 py-1 text-xs font-medium text-red-600 bg-red-100 rounded-full">
+            -${data.discount.amount}
+          </span>
         ) : null}
       </div>
     </Link>
